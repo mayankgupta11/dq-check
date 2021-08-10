@@ -1,0 +1,12 @@
+dq_check_id,Check,Database_name,table_name,primary_key_cols,sql_fr_run,priority,threshold,run_seq
+100,duplicate,corp_us_hub,txn_purchasingitem_erp_glbl,md5_key,"with tmp as (select md5_key, count(1) from corp_us_hub.txn_purchasingitem_erp_glbl group by md5_key having count(1) > 1)
+select count(1) from tmp;",P1,100,1
+101,duplicate,corp_us_hub,txn_purchasingitem_erp_glbl,md5_key,"with tmp as (select md5_key, count(1) from corp_us_hub.txn_purchasingitem_erp_glbl group by md5_key having count(1) > 1)
+select count(1) from tmp;",P1,100,2
+102,duplicate,corp_us_hub,txn_purchasingitem_erp_glbl,md5_key,"with tmp as (select md5_key, count(1) from corp_us_hub.txn_purchasingitem_erp_glbl group by md5_key having count(1) > 1)
+select count(1) from tmp;",P1,100,3
+103,duplicate,corp_us_hub,txn_purchasingitem_erp_glbl,md5_key,"with tmp as (select md5_key, count(1) from corp_us_hub.txn_purchasingitem_erp_glbl group by md5_key having count(1) > 1)
+select count(1) from tmp;",P1,100,4
+104,duplicate,corp_us_hub,txn_purchasingitem_erp_glbl,md5_key,"with tmp as (select md5_key, count(1) from corp_us_hub.txn_purchasingitem_er_glbl group by md5_key having count(1) > 1)
+select count(1) from tmp;",P1,100,5
+final_check,final_check,corp_us_hub,txn_purchasingitem_erp_glbl,md5_key,"select case when metric > threshold then 1 else 0 end as res from dq_output_table where entity_id in (101,102)",P1,100,6
