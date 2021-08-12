@@ -9,4 +9,5 @@ select count(1) from tmp;",P1,100,3
 select count(1) from tmp;",P1,100,4
 104,duplicate,corp_us_hub,txn_purchasingitem_erp_glbl,md5_key,"with tmp as (select md5_key, count(1) from corp_us_hub.txn_purchasingitem_er_glbl group by md5_key having count(1) > 1)
 select count(1) from tmp;",P1,100,5
-final_check,final_check,corp_us_hub,txn_purchasingitem_erp_glbl,md5_key,"select case when metric > threshold then 1 else 0 end as res from dq_output_table where entity_id in (101,102)",P1,100,6
+105,duplicate,corp_us_hub,rxc_patient_hub,md5_key_hub,"with tmp as (select md5_key_hub, count(1) from corp_us_hub.rxc_patient_hub group by md5_key_hub having count(1) > 1) select count(1) from tmp;",P1,100,6
+final_check,final_check,corp_us_hub,txn_purchasingitem_erp_glbl,md5_key,"select case when metric > threshold then 1 else 0 end as res from dq_output_table where entity_id in (101,105)",P1,100,7
